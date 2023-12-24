@@ -41,37 +41,37 @@ class FaceView: UIImageView, UIGestureRecognizerDelegate {
             target: self,
             action: #selector(self.oneFingerTap(_:))
         )
+        oneFingerTapGesture.delegate = self
+        oneFingerTapGesture.numberOfTouchesRequired = 1     // 1 finger
+        oneFingerTapGesture.numberOfTapsRequired = 1        // single tap
+        self.addGestureRecognizer(oneFingerTapGesture)
+
         let twoFingerTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(
             target: self,
             action: #selector(self.twoFingerTap(_:))
         )
+        twoFingerTapGesture.delegate = self
+        twoFingerTapGesture.numberOfTouchesRequired = 2
+        twoFingerTapGesture.numberOfTapsRequired = 1
+        self.addGestureRecognizer(twoFingerTapGesture)
+
         let threeFingerTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(
             target: self,
             action: #selector(self.threeFingerTap(_:))
         )
+        threeFingerTapGesture.delegate = self
+        threeFingerTapGesture.numberOfTouchesRequired = 3
+        threeFingerTapGesture.numberOfTapsRequired = 1
+        self.addGestureRecognizer(threeFingerTapGesture)
+
         let rightSwaipGesture: UISwipeGestureRecognizer = UISwipeGestureRecognizer(
             target: self,
             action: #selector(self.rightSwaip(_:))
         )
-
-        oneFingerTapGesture.delegate = self
-        twoFingerTapGesture.delegate = self
-        threeFingerTapGesture.delegate = self
         rightSwaipGesture.delegate = self
-
-        self.addGestureRecognizer(oneFingerTapGesture)
-        oneFingerTapGesture.numberOfTouchesRequired = 1     // 1 finger
-        oneFingerTapGesture.numberOfTapsRequired = 1        // single tap
-        self.addGestureRecognizer(twoFingerTapGesture)
-        twoFingerTapGesture.numberOfTouchesRequired = 2
-        twoFingerTapGesture.numberOfTapsRequired = 1        
-        self.addGestureRecognizer(threeFingerTapGesture)
-        threeFingerTapGesture.numberOfTouchesRequired = 3
-        threeFingerTapGesture.numberOfTapsRequired = 1      
-
-        self.addGestureRecognizer(rightSwaipGesture)
         rightSwaipGesture.numberOfTouchesRequired = 1       // 1 finger
         rightSwaipGesture.direction = .right                // right swaip
+        self.addGestureRecognizer(rightSwaipGesture)
 
     }
 
