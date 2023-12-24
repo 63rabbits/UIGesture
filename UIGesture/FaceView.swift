@@ -35,7 +35,7 @@ class FaceView: UIImageView, UIGestureRecognizerDelegate {
         // MARK: for Gesture
 
         isUserInteractionEnabled = true
-        isMultipleTouchEnabled = true
+//        isMultipleTouchEnabled = true
 
         let oneFingerTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(
             target: self,
